@@ -1,0 +1,12 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>Redirecting...</title>
+<script>
+  // GH Pages の SPA ルーティング対策
+  const seg = location.pathname.split('/').filter(Boolean)
+  // リポ名の次以降をクエリに退避して index.html へ戻す
+  const repo = 'industry-recommend'
+  const i = seg.indexOf(repo)
+  const rest = i >= 0 ? seg.slice(i + 1).join('/') : ''
+  location.replace('/' + repo + '/?' + rest + location.search + location.hash)
+</script>
